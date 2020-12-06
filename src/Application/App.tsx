@@ -1,6 +1,6 @@
 //import logo from '../logo';
 import './App.css';
-import Car from '../Layout/Day1/Day1';
+import Day1a from '../Layout/Day1/Day1';
 import React from 'react';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         >
           Learn React
         </a>
-        <Car/>
+        <Day1a/>
         
       </header>
     </div>

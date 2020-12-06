@@ -3,13 +3,14 @@ import {observer} from 'mobx-react-lite';
 
 import {RootStoreContext} from '../../Application/Store/RootStore'
 
-const Car =()=>{
+const Day1a =()=>{
   const rootStore =  useContext(RootStoreContext);
 
-  const {test, observerValues} = rootStore.adventStore1;
+  const {result, YearFinder, val1, val2} = rootStore.adventStore1;
+  {YearFinder()}
 
-  return( <h2>Hi, I am a Car!{observerValues} {test}</h2>);
+return( <h2>Answer for day 1a: {result} taken from the 2 numbers of {val1} and {val2} </h2>);
     
   };
 
-  export default observer(Car);
+  export default observer(Day1a);
