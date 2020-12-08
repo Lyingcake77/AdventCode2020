@@ -6,10 +6,11 @@ import {RootStoreContext} from '../../Application/Store/RootStore'
 const Day1a =()=>{
   const rootStore =  useContext(RootStoreContext);
 
-  const {result, YearFinder, val1, val2} = rootStore.adventStore1;
+  const {resultA, YearFinder, val1, val2} = rootStore.adventStore1;
   {YearFinder()}
 
-return( <h2>Answer for day 1a: {result} taken from the 2 numbers of {val1} and {val2} </h2>);
+
+return( <h2>Answer for day 1a: {resultA} taken from the 2 numbers of {val1} and {val2}. </h2>);
     
   };
 

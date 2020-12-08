@@ -1,7 +1,8 @@
 //import logo from '../logo';
 import './App.css';
-import Day1a from '../Layout/Day1/Day1';
+import Day1a from '../Layout/Day1/Day1a';
 import React from 'react';
+import Day1b from '../Layout/Day1/Day1b';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           Learn React
         </a>
         <Day1a/>
+        <Day1b/>
         
       </header>
     </div>

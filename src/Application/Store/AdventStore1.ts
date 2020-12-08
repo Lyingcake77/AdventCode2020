@@ -1,4 +1,4 @@
-import { observable, action } from "mobx"
+import { observable, action, computed } from "mobx"
 import { RootStore } from "./RootStore";
 
 export default class AdventStore1{
@@ -213,9 +213,12 @@ export default class AdventStore1{
 
   @observable val1=0;
   @observable val2=0;
+  @observable val3=0;
 
 
-  @observable result=0;
+  @observable resultA=0;
+  
+  @observable resultB=0;
 
   @action YearFinder = ()=>{
     
@@ -228,15 +231,83 @@ export default class AdventStore1{
             if((index!=index2) && ((value+value2)==2020)){
               this.val1=value;
               this.val2=value2;
-              
-              this.result = value*value2;
-              console.log(this.result);
-              return this.result;
+
+              this.resultA = value*value2;
+              console.log(this.resultA);
+              return this.resultA;
             };
           });
-          return this.result;
+          return this.resultA;
       });
 
+  }
+
+
+  @action YearFinder2 = ()=>{
+  
+    this.listResults.map(
+      (value, index, array)=>{    
+        
+        array.map(
+          (value2, index2, array2)=>{
+
+            array2.map(            
+              (value3, index3, array3)=>{
+                if((index!=index2) && (index2!=index3) && (index!=index3) && ((value+value2+value3)==2020)
+                  
+                  ){
+                    this.val1=value;
+                    this.val2=value2;
+                    this.val3=value3;
+      
+                    this.resultB = value*value2*value3;
+                    console.log(this.resultB);
+                    return this.resultB;
+                  };
+
+            });
+          });
+          return this.resultB;
+      });
+
+  }
+
+  @action Day1B = () =>{
+    var a;
+    var b;
+    var c;
+
+    this.listResults=this.listResults.sort(function(a, b){return a-b});
+    
+    this.listResults.some(
+      (value, index, array)=>{
+        var L=index+1;
+        var R = this.listResults.length-1;
+
+        var i = [1,2,3,4,5,5,6,7,8]
+        while(L<R){
+          
+          var temp=value+array[L]+array[R]
+          
+          if(temp<2020){
+            L+=1;
+          }
+          else if(temp>2020){
+            R-=1;
+          }
+          else if(temp===2020){
+            a=array[L];
+            b=array[R];
+            c=value;
+            this.resultB=a*b*c;
+            console.log(this.resultB)
+            //break;
+            return this.resultB;
+          }
+
+        }
+        
+      });
   }
 
 }
